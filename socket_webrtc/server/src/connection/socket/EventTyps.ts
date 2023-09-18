@@ -1,4 +1,7 @@
+import { Socket } from "socket.io";
+
 export namespace EventTypes {
+
 
 export interface ServerToClientEvents {
     noArg: () => void;
@@ -19,5 +22,12 @@ export interface ServerToClientEvents {
     name: string;
     age: number;
   }
+
+  export type SocketType = Socket<
+  EventTypes.ClientToServerEvents,
+  EventTypes.ServerToClientEvents,
+  EventTypes.InterServerEvents,
+  EventTypes.SocketData
+>
   
 }
